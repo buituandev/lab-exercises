@@ -22,7 +22,5 @@ public class ImageDownloader {
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
-        //manuel.clavel@eiu.edu.vn
-        //add src/ pom.xml
     }
 }
