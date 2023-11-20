@@ -57,6 +57,7 @@ public class TicTacToeServer {
                                 writer.write("***It's a draw***");
                                 writer.write("\r\n");
                                 writer.flush();
+                                break;
                             }
                         }
                         move = reader.readLine();
@@ -112,7 +113,7 @@ public class TicTacToeServer {
 
             //check every lines/rows
             for (int i = 0; i < line.length; i++) {
-                // Eliminate the case dash=dash=dash and check if all three cells match each other
+                // Eliminate the case dash=dash=dash and check if all three cells (and cross line) match each other
                 if (board[line[i][0]] != '-' && board[line[i][0]] == board[line[i][1]] && board[line[i][1]] == board[line[i][2]]) {
                     //check X or O
                     if (board[line[i][0]] == 'X') {

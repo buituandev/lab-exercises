@@ -49,10 +49,17 @@ public class TicTacToeClient {
 
     private static void receiveMessage(BufferedReader reader) {
         try {
-            for (String line = reader.readLine(); line != null; line = reader.readLine()) {
+            for (String line = reader.readLine(); !line.isEmpty(); line = reader.readLine()) {
                 System.out.print(line);
                 System.out.println();
             }
+//            String line = reader.readLine();
+//            while (line != null) {
+//                System.out.print(line);
+//                System.out.println();
+//                line = reader.readLine();
+//            }
+//            System.out.println(line.isEmpty());
         } catch (IOException e) {
         }
     }
