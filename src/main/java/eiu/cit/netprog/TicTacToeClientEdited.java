@@ -12,6 +12,7 @@ public class TicTacToeClientEdited {
 		try {
 			socket = new Socket(hostname, 10);
 			socket.setSoTimeout(15000);
+                        
 			InputStream in = socket.getInputStream();
 			InputStreamReader reader = new InputStreamReader(in);
 			BufferedReader bif = new BufferedReader(reader);
