@@ -7,7 +7,7 @@ public class TicTacToeServerMultithreading extends Thread {
 
     private final static int PORT = 10;
     private OOPAbstractBoard b;
-    private Socket connection;
+    private final Socket connection;
 
     public TicTacToeServerMultithreading(Socket connection) {
         this.connection = connection;
@@ -29,8 +29,8 @@ public class TicTacToeServerMultithreading extends Thread {
         try (ServerSocket server = new ServerSocket(PORT)) {
             while (true) {
                 Socket connection = server.accept();
-                Thread t = new TicTacToeServerMultithreading(connection);
-                t.start();
+                Thread clientThread = new TicTacToeServerMultithreading(connection);
+                clientThread.start();
             }
         }
     }
@@ -104,7 +104,6 @@ public class TicTacToeServerMultithreading extends Thread {
                                     out.flush();
                                     b.initialize();
                                 }
-
                             } else {
                                 // return new board
                                 out.write(b.encodeBoard() + " *** ");
